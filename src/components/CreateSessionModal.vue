@@ -25,14 +25,22 @@
               <h2>Session teams:</h2>
             </v-col>
             <v-col cols="12" v-for="(team, index) in teams" :key="index">
-              <v-text-field
-                  :append-icon="teams.length > 1 ? 'mdi-trash-can-outline' : null"
-                  label="Team name"
-                  dense
-                  single-line
-                  v-model="team.name"
-                  @click:append="deleteTeam(index)"
-              ></v-text-field>
+
+              <v-text-field label="Team name" dense single-line v-model="team.name">
+                <template v-slot:append>
+                  <v-hover v-slot="{ hover }" >
+                    <v-icon
+                        v-if="teams.length > 1"
+                        small :color="hover ? 'primary' : ''"
+                        @click="deleteTeam(index)"
+                    >
+                      mdi-trash-can-outline
+                    </v-icon>
+
+                  </v-hover>
+                </template>
+              </v-text-field>
+
             </v-col>
             <v-col cols="12" class="text-right">
               <v-btn small @click="addTeam">
@@ -64,7 +72,7 @@
 export default {
   name: "CreateSessionModal",
   data: () => ({
-    visible: true,
+    visible: false,
     teams: [
       {
         name: null,
