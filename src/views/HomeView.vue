@@ -109,21 +109,25 @@ export default {
     },
     getLastSessions() {
       return [{
-        name: 'Some session name',
+        name: 'Some medium length session name for my awesome team',
         date: moment(),
         labels: {
           open: true,
           owner: true
         },
-        id: 'id'
+        id: 'id1'
       }, {
         name: 'Release 16 part 2',
+        date: moment(),
         labels: {
           open: true,
         },
+        id: 'id2'
       }, {
-        name: 'test3',
+        name: 'Release 16 part 1',
+        date: moment(),
         labels: {},
+        id: 'id3'
       }];
     },
     rowClicked(item) {
