@@ -12,13 +12,12 @@
     </v-row>
     <v-row>
       <v-col cols="12" sm="6" class="text-center">
-        <v-btn x-large outlined color="primary" width="260">
-          Create new session
-        </v-btn>
+        <CreateSessionModal>
+        </CreateSessionModal>
       </v-col>
       <v-col cols="12" sm="6" class="text-center">
         <v-btn x-large outlined color="primary" width="260">
-          Join existing session
+          Join session
         </v-btn>
       </v-col>
     </v-row>
@@ -70,10 +69,12 @@
 
 <script>
 import moment from 'moment'
+import CreateSessionModal from '@/components/CreateSessionModal'
 
 export default {
   name: 'HomeApp',
   data: () => ({
+    openModal: false,
     headers: [
       {
         text: 'Name',
@@ -139,7 +140,9 @@ export default {
 
   },
 
-  components: {},
+  components: {
+    CreateSessionModal,
+  },
 }
 </script>
 
