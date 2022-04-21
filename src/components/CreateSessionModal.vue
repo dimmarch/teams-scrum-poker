@@ -28,7 +28,7 @@
 
               <v-text-field label="Team name" dense single-line v-model="team.name">
                 <template v-slot:append>
-                  <v-hover v-slot="{ hover }" >
+                  <v-hover v-slot="{ hover }">
                     <v-icon
                         v-if="teams.length > 1"
                         small :color="hover ? 'primary' : ''"
@@ -58,7 +58,7 @@
         <v-btn color="accent" outlined @click="visible = false">
           CANCEL
         </v-btn>
-        <v-btn color="primary" outlined @click="visible = false">
+        <v-btn color="primary" outlined @click="createSession">
           CREATE
         </v-btn>
 
@@ -86,6 +86,11 @@ export default {
     },
     addTeam() {
       this.teams.push({id: null, name: null});
+    },
+    createSession() {
+
+
+      this.visible = true;
     }
   }
 }
